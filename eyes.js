@@ -1,16 +1,6 @@
 const balls = document.getElementsByClassName("ball");
 const eyelids = Object.values(document.querySelectorAll(".eyelid"));
 
-const boredTimeout = 5000;
-
-alert(`
-  cursor move -> eyes follow;
-  click on left eye -> blink left eye;
-  click on right eye -> blink left eye;
-  click everywhere else -> blink both eyes;
-  idle for ${boredTimeout / 1000}s -> get bored;
-`);
-
 // Move eye balls at mousemove
 document.onmousemove = (event) => {
   const x = (event.clientX * 100) / window.innerWidth + "%";
@@ -62,6 +52,7 @@ const setBlinkClass = function (eye) {
 };
 
 // When no click happens for boredTimeout time, set bored animation
+const boredTimeout = 5000;
 const setBored = function () {
   eyelids.forEach((eyelid) => eyelid.classList.add("bored"));
 };
